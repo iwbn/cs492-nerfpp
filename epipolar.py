@@ -33,24 +33,6 @@ H, W, C = im1.shape
 
 print(H,W,C)
 
-# def process_pose(C2W):
-#     flip_yz = np.eye(4, dtype=C2W.dtype)
-#     flip_yz[1, 1] = -1
-#     flip_yz[2, 2] = -1
-#     C2W = np.matmul(C2W, flip_yz)
-#     return C2W
-#
-# def process_intrinsic(intrinsic, H, W):
-#     intrinsic[0, 2] = intrinsic[0, 2] - W / 2
-#     intrinsic[1, 2] = intrinsic[1, 2] - H / 2
-#     intrinsic[1, 2] = - intrinsic[1, 2]
-#     return intrinsic
-#
-# i1 = process_intrinsic(i1, H, W)
-# i2 = process_intrinsic(i2, H, W)
-#
-# e1 = process_pose(e1)
-# e2 = process_pose(e2)
 
 
 def get_ray(i1, e1, coord):

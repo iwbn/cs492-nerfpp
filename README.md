@@ -4,6 +4,18 @@ This code repository aims to build NeRF++ with TensorFlow.
 
 Original Repository: https://github.com/Kai-46/nerfplusplus
 
+## Requirements
+* Install below via pip:
+  * `tensorflow-gpu`
+  * `miniball`
+  * `python-box`
+  * `opencv-python`
+  
+We used environment specified in `requirements.txt`. Use command below to install all the packages. 
+```sh
+pip install -r requirments.txt
+```
+
 ## How to train
 
 Training example (please refer to `training_examples.sh`):
@@ -18,6 +30,16 @@ python main.py ckpt/nerf_africa_nolratedecay --use_viewdirs --n_samples 128 --da
 evaluate example (use the same network settings as training):
 ```sh
 python evaluate.py ckpt/nerf_africa_nolratedecay/ckpt-250000 \
+--model_type nerfpp --dataset_type nerfppdata --dataset_name africa \
+--use_viewdirs --n_samples 64 --n_importance 128 \
+--chunk_size 4096 \
+--normalize_coordinates --gpus 0
+```
+
+### Evaluate pretrained model example
+Pretrained models available in `nerf_checkpoints_export` directory.
+```sh
+python evaluate.py nerf_checkpoints_export/lf_tnt/nerfpp_africa/ckpt-1 \
 --model_type nerfpp --dataset_type nerfppdata --dataset_name africa \
 --use_viewdirs --n_samples 64 --n_importance 128 \
 --chunk_size 4096 \
