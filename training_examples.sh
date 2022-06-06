@@ -1,11 +1,11 @@
 # baseline nerf
 python main.py ckpt/nerf_lego_importance --use_viewdirs --n_samples 64 --n_importance 128 --use_perturb --lrate_decay 500 --use_white_bkgd \
---rays_per_batch 2048 --gpus 0 --chunk_size 4096 --val_step 5000 --max_step 250001 --no_batching \
+--rays_per_batch 2048 --gpus 0 --chunk_size 4096 --val_step 5000 --max_step 1000000 --no_batching \
 --learning_rate 5e-4
 
 # nerf degenerate
 python main.py ckpt/nerf_lego_degenerate --model_type nerf-degen --use_viewdirs --n_samples 256 --lrate_decay 500 \
---rays_per_batch 65536 --gpus 0 --chunk_size 4096 --val_step 5000 --max_step 250001 --no_batching --use_white_bkgd \
+--rays_per_batch 65536 --gpus 0 --chunk_size 4096 --val_step 5000 --max_step 1000000 --no_batching --use_white_bkgd \
 --learning_rate 5e-4
 
 # nerfpp africa
