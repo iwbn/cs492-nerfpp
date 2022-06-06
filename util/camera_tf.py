@@ -47,6 +47,7 @@ def get_intersaction_sphere(rays_o, rays_d, center, radius, only_forward=True, g
 
     oc = center - rays_o
 
+    # followed https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
     _nm = lambda x: tf.linalg.norm(x, axis=-1, keepdims=True)
     cos_t = tf.reduce_sum(n_rays_d * oc, axis=-1, keepdims=True)
     cos_t = tf.math.divide_no_nan(cos_t, _nm(oc))
